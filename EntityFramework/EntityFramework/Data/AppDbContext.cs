@@ -12,6 +12,7 @@ namespace EntityFramework.Data
 
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<Blog> Blogs { get; set; }
+        public DbSet<SliderInfo> SliderInfos { get; set; }
 
     }
 }

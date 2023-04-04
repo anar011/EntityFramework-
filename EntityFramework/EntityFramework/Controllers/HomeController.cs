@@ -1,6 +1,7 @@
 ﻿
 using EntityFramework.Data;
 using EntityFramework.Models;
+using EntityFramework.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -17,8 +18,17 @@ namespace EntityFramework.Controllers
         public IActionResult Index()
         {
             List<Slider> sliders = _context.Sliders.ToList();
+            SliderInfo sliderInfo = _context.SliderInfos.FirstOrDefault();
 
-            return View(sliders);
+            HomeVM model = new()
+            {
+                Sliders = sliders,
+                SliderInfo = sliderInfo
+
+
+            };
+
+            return View(model);
         }
 
   
